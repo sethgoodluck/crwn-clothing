@@ -5,6 +5,7 @@ import React, { PureComponent } from 'react';
 import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
 import PropTypes from 'prop-types';
+import { signInWithGoogle } from 'firebase/firebaseUtils.js';
 
 class SignIn extends PureComponent {
 	constructor(props) {
@@ -54,7 +55,16 @@ class SignIn extends PureComponent {
 						label='Password'
 						required
 					/>
-					<CustomButton type='submit'>Sign In</CustomButton>
+					<div className='buttons'>
+						<CustomButton type='submit'>Sign In</CustomButton>
+						<CustomButton
+							type='button'
+							onClick={signInWithGoogle}
+							isGoogleSignIn
+						>
+							Sign In With Google
+						</CustomButton>
+					</div>
 				</form>
 			</div>
 		);

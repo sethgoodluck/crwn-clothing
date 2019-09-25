@@ -2,6 +2,7 @@ import './SignIn.styles.scss';
 
 import React, { PureComponent } from 'react';
 
+import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
 import PropTypes from 'prop-types';
 
@@ -53,7 +54,7 @@ class SignIn extends PureComponent {
 						label='Password'
 						required
 					/>
-					<input type='submit' value='Submit Form' />
+					<CustomButton type='submit'>Sign In</CustomButton>
 				</form>
 			</div>
 		);

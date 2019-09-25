@@ -2,7 +2,6 @@ import './Header.styles.scss';
 
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/crown.svg';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { auth } from 'firebase/firebaseUtils.js';
 
@@ -30,13 +29,5 @@ const Header = ({ currentUser }) => (
 		</div>
 	</div>
 );
-
-Header.propTypes = {
-	// bla: PropTypes.string,
-};
-
-Header.defaultProps = {
-	// bla: 'test',
-};
 
 export default Header;

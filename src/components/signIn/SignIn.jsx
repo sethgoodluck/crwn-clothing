@@ -4,7 +4,6 @@ import React, { PureComponent } from 'react';
 
 import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
-import PropTypes from 'prop-types';
 import { signInWithGoogle } from 'firebase/firebaseUtils.js';
 
 class SignIn extends PureComponent {
@@ -70,13 +69,5 @@ class SignIn extends PureComponent {
 		);
 	}
 }
-
-SignIn.propTypes = {
-	// bla: PropTypes.string,
-};
-
-SignIn.defaultProps = {
-	// bla: 'test',
-};
 
 export default SignIn;

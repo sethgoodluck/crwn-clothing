@@ -2,12 +2,12 @@ import './App.css';
 
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { auth, createUserProfileDocument } from 'firebase/firebaseUtils.js';
 
 import Header from 'components/header';
 import Homepage from 'pages/homepage';
 import ShopPage from 'pages/shopPage';
 import SignInSignUp from 'pages/signInSignUp';
-import { auth } from 'firebase/firebaseUtils.js';
 
 class App extends React.Component {
 	constructor() {
@@ -21,8 +21,8 @@ class App extends React.Component {
 	unsubscribeFromAuth = null;
 
 	componentDidMount() {
-		this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-			this.setState({ currentUser: user });
+		this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+			createUserProfileDocument(user);
 		});
 	}
 

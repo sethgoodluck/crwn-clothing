@@ -1,10 +1,10 @@
 import './SignIn.styles.scss';
 
 import React, { PureComponent } from 'react';
+import { auth, signInWithGoogle } from 'firebase/firebaseUtils.js';
 
 import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
-import { signInWithGoogle } from 'firebase/firebaseUtils.js';
 
 class SignIn extends PureComponent {
 	constructor(props) {
@@ -16,10 +16,17 @@ class SignIn extends PureComponent {
 		};
 	}
 
-	hadnleSubmit = e => {
+	handleSubmit = async e => {
 		e.preventDefault();
 
-		this.setState({ email: '', password: '' });
+		const { email, password } = this.state;
+
+		try {
+			await auth.signInWithEmailAndPassword(email, password);
+			this.setState({ email: '', password: '' });
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
 	handleChange = e => {

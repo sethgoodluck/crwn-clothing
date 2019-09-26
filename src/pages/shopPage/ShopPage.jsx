@@ -1,29 +1,22 @@
-import React, { PureComponent } from 'react';
-
 import CollectionPreview from 'components/collectionPreview';
-import shopData from './shopData.js';
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCollections } from 'flux/selectors/shopSelector';
 
-class ShopPage extends PureComponent {
-	constructor(props) {
-		super(props);
+const ShopPage = ({ collections }) => (
+	<div className='shop-page'>
+		{collections.map(({ id, ...otherCollectionProps }) => (
+			<CollectionPreview key={id} {...otherCollectionProps} />
+		))}
+	</div>
+);
 
-		this.state = {
-			collections: shopData
-		};
+const mapStateToProps = createStructuredSelector({
+	collections: selectCollections
+});
 
-		console.log(this.state);
-	}
-
-	render() {
-		const { collections } = this.state;
-		return (
-			<div className='shop-page'>
-				{collections.map(({ id, ...otherCollectionProps }) => (
-					<CollectionPreview key={id} {...otherCollectionProps} />
-				))}
-			</div>
-		);
-	}
-}
-
-export default ShopPage;
+export default connect(
+	mapStateToProps,
+	{}
+)(ShopPage);

@@ -1,5 +1,6 @@
 import './Header.styles.scss';
 
+import CartIcon from 'components/CartIcon';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import React from 'react';
@@ -27,6 +28,7 @@ const Header = ({ currentUser }) => (
 					SIGN IN
 				</Link>
 			)}
+			<CartIcon />
 		</div>
 	</div>
 );

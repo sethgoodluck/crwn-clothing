@@ -9,6 +9,8 @@ import Homepage from 'pages/homepage';
 import ShopPage from 'pages/shopPage';
 import SignInSignUp from 'pages/signInSignUp';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from 'flux/selectors/userSelector';
 import { setCurrentUser } from 'flux/actions/userActions';
 
 class App extends React.Component {
@@ -59,8 +61,8 @@ class App extends React.Component {
 	}
 }
 
-const mapStateToProps = ({ user }) => ({
-	currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({

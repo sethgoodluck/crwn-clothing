@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 
 const ShopPage = ({ match }) => (
 	<div className='shop-page'>
-		<Route exact path='/' component={CollectionsOverview} />
+		<Route exact path='/shop' component={CollectionsOverview} />
 		<Route path={`${match.path}/:collectionId`} component={Collection} />
 	</div>
 );

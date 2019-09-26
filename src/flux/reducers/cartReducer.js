@@ -1,7 +1,8 @@
-import { TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
+import { ADD_TO_CART, TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
 
 const initialState = {
-	hidden: true
+	hidden: true,
+	cartItems: []
 };
 
 const cartReducer = (state = initialState, { type, payload }) => {
@@ -10,6 +11,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				hidden: !state.hidden
+			};
+
+		case ADD_TO_CART:
+			return {
+				...state,
+				cartItems: [...state.cartItems, payload]
 			};
 
 		default:

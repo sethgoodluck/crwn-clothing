@@ -1,5 +1,5 @@
-import { combineReducers } from 'module';
-import userReducer from 'flux/user/userReducer';
+import { combineReducers } from 'redux';
+import userReducer from 'flux/reducers/userReducer';
 
 export default combineReducers({
 	user: userReducer

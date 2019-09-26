@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from '../actionConsants';
+import { SET_CURRENT_USER } from 'flux/actionConsants';
 
 const INITIAL_STATE = {
 	currentUser: null

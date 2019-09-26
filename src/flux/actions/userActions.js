@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from 'flux/actionConsants';
+import { SET_CURRENT_USER } from 'flux/actionTypes';
 
 export const setCurrentUser = user => ({
 	type: SET_CURRENT_USER,

@@ -1,7 +1,7 @@
 import './App.css';
 
 import React, { Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { auth, createUserProfileDocument } from 'utils/firebaseUtils.js';
 
 import Header from 'components/header';
@@ -46,18 +46,28 @@ class App extends React.Component {
 				<Switch>
 					<Route exact path='/' component={Homepage} />
 					<Route path='/shop' component={ShopPage} />
-					<Route path='/signin' component={SignInSignUp} />
+					<Route
+						exact
+						path='/signin'
+						render={() =>
+							this.props.currentUser ? <Redirect to='/' /> : <SignInSignUp />
+						}
+					/>
 				</Switch>
 			</Fragment>
 		);
 	}
 }
 
+const mapStateToProps = ({ user }) => ({
+	currentUser: user.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
 	setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(App);

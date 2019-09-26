@@ -1,6 +1,10 @@
-import { ADD_TO_CART, CLEAR_ITEM, TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
-
-import { addItemToCart } from 'utils/cartUtils';
+import {
+	ADD_TO_CART,
+	CLEAR_ITEM,
+	REMOVE_ITEM,
+	TOGGLE_CART_HIDDEN
+} from 'flux/actionTypes';
+import { addItemToCart, removeItemFromCart } from 'utils/cartUtils';
 
 const initialState = {
 	hidden: true,
@@ -19,6 +23,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				cartItems: addItemToCart(state.cartItems, payload)
+			};
+
+		case REMOVE_ITEM:
+			return {
+				...state,
+				cartItems: removeItemFromCart(state.cartItems, payload)
 			};
 
 		case CLEAR_ITEM:

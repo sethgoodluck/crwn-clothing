@@ -1,4 +1,4 @@
-import { ADD_TO_CART, TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
+import { ADD_TO_CART, CLEAR_ITEM, TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
 
 import { addItemToCart } from 'utils/cartUtils';
 
@@ -19,6 +19,14 @@ const cartReducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				cartItems: addItemToCart(state.cartItems, payload)
+			};
+
+		case CLEAR_ITEM:
+			return {
+				...state,
+				cartItems: state.cartItems.filter(
+					cartItem => cartItem.id !== payload.id
+				)
 			};
 
 		default:

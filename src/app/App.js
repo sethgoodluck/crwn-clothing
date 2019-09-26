@@ -9,7 +9,7 @@ import Homepage from 'pages/homepage';
 import ShopPage from 'pages/shopPage';
 import SignInSignUp from 'pages/signInSignUp';
 import { connect } from 'react-redux';
-import { setCurrentUser } from 'reduxFlow/actions/userActions';
+import { setCurrentUser } from 'flux/actions/userActions';
 
 class App extends React.Component {
 	unsubscribeFromAuth = null;

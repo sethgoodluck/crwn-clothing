@@ -1,5 +1,7 @@
 import { ADD_TO_CART, TOGGLE_CART_HIDDEN } from 'flux/actionTypes';
 
+import { addItemToCart } from 'utils/cartUtils';
+
 const initialState = {
 	hidden: true,
 	cartItems: []
@@ -16,7 +18,7 @@ const cartReducer = (state = initialState, { type, payload }) => {
 		case ADD_TO_CART:
 			return {
 				...state,
-				cartItems: [...state.cartItems, payload]
+				cartItems: addItemToCart(state.cartItems, payload)
 			};
 
 		default:

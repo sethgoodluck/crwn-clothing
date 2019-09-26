@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { auth, createUserProfileDocument } from 'utils/firebaseUtils.js';
 
+import Checkout from 'pages/checkout';
 import Header from 'components/header';
 import Homepage from 'pages/homepage';
 import ShopPage from 'pages/shopPage';
@@ -48,6 +49,7 @@ class App extends React.Component {
 				<Switch>
 					<Route exact path='/' component={Homepage} />
 					<Route path='/shop' component={ShopPage} />
+					<Route exact path='/checkout' component={Checkout} />
 					<Route
 						exact
 						path='/signin'

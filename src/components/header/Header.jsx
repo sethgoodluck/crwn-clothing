@@ -9,7 +9,7 @@ import { auth } from 'utils/firebaseUtils.js';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden } from 'flux/selectors/cartSelector';
-import { selectCurrentUser } from 'flux/selectors/userSelector ';
+import { selectCurrentUser } from 'flux/selectors/userSelector';
 
 const Header = ({ currentUser, hidden }) => (
 	<div className='header'>

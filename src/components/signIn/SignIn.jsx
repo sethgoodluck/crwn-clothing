@@ -1,12 +1,11 @@
 import './SignIn.styles.scss';
 
 import React, { PureComponent } from 'react';
+import { emailSignInStart, googleSignInStart } from 'flux/actions/userActions';
 
 import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
-import { auth } from 'utils/firebaseUtils.js';
 import { connect } from 'react-redux';
-import { googleSignInStart } from 'flux/actions/userActions';
 
 class SignIn extends PureComponent {
 	constructor(props) {
@@ -20,15 +19,9 @@ class SignIn extends PureComponent {
 
 	handleSubmit = async e => {
 		e.preventDefault();
-
+		const { emailSignInStart } = this.props;
 		const { email, password } = this.state;
-
-		try {
-			await auth.signInWithEmailAndPassword(email, password);
-			this.setState({ email: '', password: '' });
-		} catch (err) {
-			console.error(err);
-		}
+		emailSignInStart(email, password);
 	};
 
 	handleChange = e => {
@@ -80,7 +73,13 @@ class SignIn extends PureComponent {
 	}
 }
 
+const mapDispatchToProps = dispatch => ({
+	googleSignInStart: () => dispatch(googleSignInStart()),
+	emailSignInStart: (email, password) =>
+		dispatch(emailSignInStart({ email, password }))
+});
+
 export default connect(
 	null,
-	{ googleSignInStart }
+	mapDispatchToProps
 )(SignIn);

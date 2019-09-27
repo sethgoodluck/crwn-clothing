@@ -1,8 +1,7 @@
 import {
 	FETCH_COLLECTIONS_FAILURE,
 	FETCH_COLLECTIONS_SUCCESS,
-	FETCH_COLLETIONS_START,
-	UPDATE_COLLECTIONS
+	FETCH_COLLETIONS_START
 } from 'flux/actionTypes';
 import {
 	convertCollectionsSnapshotToMap,

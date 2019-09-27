@@ -1,4 +1,5 @@
 import {
+	CHECK_USER_SESSION,
 	EMAIL_SIGN_IN_START,
 	GOOGLE_SIGN_IN_START,
 	SIGN_IN_FAILURE,
@@ -22,4 +23,8 @@ export const signInFailure = error => ({
 export const emailSignInStart = emailAndPassword => ({
 	type: EMAIL_SIGN_IN_START,
 	payload: emailAndPassword
+});
+
+export const checkUserSession = () => ({
+	type: CHECK_USER_SESSION
 });

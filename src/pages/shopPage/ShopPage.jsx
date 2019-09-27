@@ -3,12 +3,12 @@ import CollectionsOverviewContainer from 'components/collection/collectionsOverv
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCollectionsStartAsync } from 'flux/actions/shopActions';
+import { fetchCollectionsStart } from 'flux/actions/shopActions';
 
 class ShopPage extends React.Component {
 	componentDidMount() {
-		const { fetchCollectionsStartAsync } = this.props;
-		fetchCollectionsStartAsync();
+		const { fetchCollectionsStart } = this.props;
+		fetchCollectionsStart();
 	}
 
 	render() {
@@ -28,5 +28,5 @@ class ShopPage extends React.Component {
 
 export default connect(
 	null,
-	{ fetchCollectionsStartAsync }
+	{ fetchCollectionsStart }
 )(ShopPage);

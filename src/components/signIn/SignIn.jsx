@@ -1,10 +1,12 @@
 import './SignIn.styles.scss';
 
 import React, { PureComponent } from 'react';
-import { auth, signInWithGoogle } from 'utils/firebaseUtils.js';
 
 import CustomButton from 'components/customButton';
 import FormInput from 'components/formInput';
+import { auth } from 'utils/firebaseUtils.js';
+import { connect } from 'react-redux';
+import { googleSignInStart } from 'flux/actions/userActions';
 
 class SignIn extends PureComponent {
 	constructor(props) {
@@ -36,6 +38,7 @@ class SignIn extends PureComponent {
 	};
 
 	render() {
+		const { googleSignInStart } = this.props;
 		if (this.state.hasError) {
 			return <h1>Something went wrong.</h1>;
 		}
@@ -65,7 +68,7 @@ class SignIn extends PureComponent {
 						<CustomButton type='submit'>Sign In</CustomButton>
 						<CustomButton
 							type='button'
-							onClick={signInWithGoogle}
+							onClick={googleSignInStart}
 							isGoogleSignIn
 						>
 							Sign In With Google
@@ -77,4 +80,7 @@ class SignIn extends PureComponent {
 	}
 }
 
-export default SignIn;
+export default connect(
+	null,
+	{ googleSignInStart }
+)(SignIn);

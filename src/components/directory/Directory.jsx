@@ -1,6 +1,6 @@
 import './Directory.styles.scss';
 
-import MenuItem from 'components/menuItem/MenuItem';
+import MenuItem from 'components/navbar/menuItem/MenuItem';
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';

@@ -1,6 +1,6 @@
 import './Collection.styles.scss';
 
-import CollectionItem from 'components/collectionItem';
+import CollectionItem from 'components/collection/collectionItem';
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectCollection } from 'flux/selectors/shopSelector';

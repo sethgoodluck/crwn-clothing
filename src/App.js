@@ -5,7 +5,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { auth, createUserProfileDocument } from 'utils/firebaseUtils.js';
 
 import Checkout from 'pages/checkout';
-import Header from 'components/header';
+import Header from 'components/navbar/header';
 import Homepage from 'pages/homepage';
 import ShopPage from 'pages/shopPage';
 import SignInSignUp from 'pages/signInSignUp';

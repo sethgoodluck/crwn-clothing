@@ -1,7 +1,7 @@
 import './Header.styles.scss';
 
-import CartDropdown from 'components/cartDropdown';
-import CartIcon from 'components/cartIcon';
+import CartDropdown from 'components/cart/cartDropdown';
+import CartIcon from 'components/cart/cartIcon';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/crown.svg';
 import React from 'react';

@@ -1,6 +1,6 @@
 import './CartDropdown.styles.scss';
 
-import CartItem from 'components/CartItem';
+import CartItem from 'components/cart/CartItem';
 import CustomButton from 'components/customButton';
 import React from 'react';
 import { connect } from 'react-redux';

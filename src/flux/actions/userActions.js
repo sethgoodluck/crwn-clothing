@@ -3,7 +3,10 @@ import {
 	EMAIL_SIGN_IN_START,
 	GOOGLE_SIGN_IN_START,
 	SIGN_IN_FAILURE,
-	SIGN_IN_SUCCESS
+	SIGN_IN_SUCCESS,
+	SIGN_OUT_FAILURE,
+	SIGN_OUT_START,
+	SIGN_OUT_SUCCESS
 } from 'flux/actionTypes';
 
 export const googleSignInStart = () => ({
@@ -27,4 +30,17 @@ export const emailSignInStart = emailAndPassword => ({
 
 export const checkUserSession = () => ({
 	type: CHECK_USER_SESSION
+});
+
+export const signOutStart = () => ({
+	type: SIGN_OUT_START
+});
+
+export const signOutSuccess = () => ({
+	type: SIGN_OUT_SUCCESS
+});
+
+export const signOutFailure = error => ({
+	type: SIGN_OUT_FAILURE,
+	payload: error
 });

@@ -5,7 +5,7 @@ import {
 	SIGN_OUT_START,
 	SIGN_UP_START,
 	SIGN_UP_SUCCESS
-} from 'flux/actionTypes';
+} from 'flux/actionTypes.js';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import {
 	auth,
@@ -20,7 +20,7 @@ import {
 	signOutSuccess,
 	signUpFailure,
 	signUpSuccess
-} from 'flux/actions/userActions';
+} from 'flux/actions/userActions.js';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
 	try {

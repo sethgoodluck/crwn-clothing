@@ -1,5 +1,6 @@
 import {
 	ADD_TO_CART,
+	CLEAR_CART,
 	CLEAR_ITEM,
 	REMOVE_ITEM,
 	TOGGLE_CART_HIDDEN
@@ -37,6 +38,12 @@ const cartReducer = (state = initialState, { type, payload }) => {
 				cartItems: state.cartItems.filter(
 					cartItem => cartItem.id !== payload.id
 				)
+			};
+
+		case CLEAR_CART:
+			return {
+				...state,
+				cartItems: []
 			};
 
 		default:

@@ -8,6 +8,7 @@ import {
 	SIGN_OUT_START,
 	SIGN_OUT_SUCCESS,
 	SIGN_UP_FAILURE,
+	SIGN_UP_START,
 	SIGN_UP_SUCCESS
 } from 'flux/actionTypes';
 
@@ -47,11 +48,17 @@ export const signOutFailure = error => ({
 	payload: error
 });
 
+export const signUpStart = userCredentials => ({
+	type: SIGN_UP_START,
+	payload: userCredentials
+});
+
+export const signUpSuccess = ({ user, additionalData }) => ({
+	type: SIGN_UP_SUCCESS,
+	payload: { user, additionalData }
+});
+
 export const signUpFailure = error => ({
 	type: SIGN_UP_FAILURE,
 	payload: error
-});
-
-export const signUpSuccess = () => ({
-	type: SIGN_UP_SUCCESS
 });

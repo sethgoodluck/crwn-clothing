@@ -2,7 +2,8 @@ import {
 	SIGN_IN_FAILURE,
 	SIGN_IN_SUCCESS,
 	SIGN_OUT_FAILURE,
-	SIGN_OUT_SUCCESS
+	SIGN_OUT_SUCCESS,
+	SIGN_UP_FAILURE
 } from 'flux/actionTypes';
 
 const INITIAL_STATE = {
@@ -27,6 +28,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
 		case SIGN_IN_FAILURE:
 		case SIGN_OUT_FAILURE:
+		case SIGN_UP_FAILURE:
 			return {
 				...state,
 				currentUser: action.payload

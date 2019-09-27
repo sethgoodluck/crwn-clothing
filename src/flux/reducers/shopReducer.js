@@ -1,7 +1,7 @@
 import {
 	FETCH_COLLECTIONS_FAILURE,
+	FETCH_COLLECTIONS_START,
 	FETCH_COLLECTIONS_SUCCESS,
-	FETCH_COLLETIONS_START,
 	UPDATE_COLLECTIONS
 } from 'flux/actionTypes';
 
@@ -13,7 +13,7 @@ const initialState = {
 
 const shopReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
-		case FETCH_COLLETIONS_START:
+		case FETCH_COLLECTIONS_START:
 			return {
 				...state,
 				isFetching: true

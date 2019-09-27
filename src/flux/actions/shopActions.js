@@ -1,7 +1,7 @@
 import {
 	FETCH_COLLECTIONS_FAILURE,
-	FETCH_COLLECTIONS_SUCCESS,
-	FETCH_COLLETIONS_START
+	FETCH_COLLECTIONS_START,
+	FETCH_COLLECTIONS_SUCCESS
 } from 'flux/actionTypes';
 import {
 	convertCollectionsSnapshotToMap,
@@ -9,7 +9,7 @@ import {
 } from 'utils/firebaseUtils';
 
 export const fetchCollectionsStart = () => ({
-	type: FETCH_COLLETIONS_START
+	type: FETCH_COLLECTIONS_START
 });
 
 export const fetchCollectionsSuccess = collectionsMap => ({

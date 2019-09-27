@@ -25,11 +25,26 @@ class ShopPage extends React.Component {
 		const { updateCollections } = this.props;
 		const collectionRef = firestore.collection('collections');
 
-		this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+		// // This is a traditional FETCH. It is less than ideal as the data is deeply nested
+		// fetch(
+		// 	'https://firestore.googleapis.com/v1/projects/crwn-db-67ddf/databases/(default)/documents/collections'
+		// )
+		// 	.then(response => response.json())
+		// 	.then(collections => console.log(collections));
+
+		// This is a promise chain retrieval wiith one off API calls
+		collectionRef.get().then(snapshot => {
 			const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
 			updateCollections(collectionsMap);
 			this.setState({ loading: false });
 		});
+
+		// // This is a live update stream observable style
+		// this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+		// 	const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+		// 	updateCollections(collectionsMap);
+		// 	this.setState({ loading: false });
+		// });
 	}
 
 	render() {

@@ -10,7 +10,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
-import { toggleCartHidden } from '../../redux/cart/cart.actions.js.js';
+import { toggleCartHidden } from '../../redux/cart/cart.actions.js';
 import { withRouter } from 'react-router-dom';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
